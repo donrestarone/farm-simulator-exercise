@@ -1,3 +1,4 @@
+#require 'pry'
 class Thefarm 
 	@@farm = []
 
@@ -7,7 +8,12 @@ class Thefarm
 	end 
 
 	def crop_reader
-		return @crop
+		crop_list = []
+		@@farm.each do |item|
+			#if @@farm[@crop] == nil 
+				crop_list.push(item)
+		end
+		return crop_list
 	end 
 
 	def crop_size_reader
@@ -53,14 +59,25 @@ class Thefarm
 	def all_fields
 		return @@farm
 	end 
-	def harvest_status(crop_name)
-
-
+	def self.harvestable?(crop_name)
+		@@farm.each do |crop_type|
+			obj = 1
+			
+			if crop_type.crop_reader == crop_name 
+				obj != 1
+				return true
+			else 
+				return false
+			end 
+				if obj != 1 
+					return false 
+				end 
+		end 
 	end
 
 	def harvest(crop_name)
 		crop_amount = 0
-		if crop_name.self.find_crop(crop_name) == true 
+		if harvestable?(crop_name) == true 
 			crop_amount += 5
 		else 
 			return false
@@ -81,8 +98,11 @@ puts big_farm.all_fields.inspect
 puts 
 puts
 #search for corn 
-puts Thefarm.find_crop("corn").inspect
+puts Thefarm.find_crop("wheat").inspect
 #search for crop by field size
 puts Thefarm.find_crop_by_size(500).inspect
 
-puts big_farm.harvest("corn").inspect
+
+#puts Thefarm.harvestable?("stuff")
+puts big_farm.crop_reader.inspect
+#puts big_farm.harvest("wheat").inspect
