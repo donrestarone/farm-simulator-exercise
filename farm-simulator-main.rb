@@ -1,3 +1,27 @@
+# class Thefarm 
+# 	@@farm = []
+# 	def initialize(farm_name)
+# 		@farm_name = farm_name 
+# 	end 
+
+# 	def add_field(crop, size)
+# 		field = {crop => size}
+# 		@@farm.push(field)
+# 	end 
+
+# 	def all_fields
+# 		return @@farm
+# 	end 
+# end 
+
+# big_farm = Thefarm.new("big ass farm")
+
+# big_farm.add_field("corn", 5)
+# big_farm.add_field("wheat", 50)
+# big_farm.add_field("stuff", 500)
+
+# puts big_farm.all_fields.inspect
+
 class Thefarm 
 	@@farm = []
 
@@ -12,10 +36,6 @@ class Thefarm
 
 	def crop_size_reader
 		return @size
-	end 
-
-	def add_to_farm 
-		@@farm.push self
 	end 
 
 	def self.add_field(crop, size)
@@ -33,7 +53,7 @@ class Thefarm
 			end 
 		end
 		if obj != 1
-			return false
+			return "error"
 		end 
 	end 
 
@@ -50,23 +70,13 @@ class Thefarm
 		end 
 	end 
 
+
+	def add_to_farm 
+		@@farm.push self
+	end 
+
 	def all_fields
 		return @@farm
-	end 
-	def harvest_status(crop_name)
-
-
-	end
-
-	def harvest(crop_name)
-		crop_amount = 0
-		if crop_name.self.find_crop(crop_name) == true 
-			crop_amount += 5
-		else 
-			return false
-		end 
-		return crop_amount
-
 	end 
 end 
 
@@ -84,5 +94,3 @@ puts
 puts Thefarm.find_crop("corn").inspect
 #search for crop by field size
 puts Thefarm.find_crop_by_size(500).inspect
-
-puts big_farm.harvest("corn").inspect
