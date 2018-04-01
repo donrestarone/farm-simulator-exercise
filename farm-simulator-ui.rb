@@ -1,4 +1,4 @@
-require_relative 'farm-simulator.rb'
+require_relative 'farm-simulator-main.rb'
 
 class Farm_ui
 	def main_menue
@@ -13,7 +13,8 @@ class Farm_ui
 		puts "[1] add a new field" 
 		puts "[2] harvest crops"
 		puts "[3] show farm status"
-		puts "[4] exit program"
+		puts "[4] remove field"
+		puts "[5] search by crop name"
 		puts "enter a number"
 	end 
 
@@ -22,7 +23,8 @@ class Farm_ui
 			when 1 then add_new_field 
 			when 2 then harvest_crops
 			when 3 then show_farm_status
-		#when 4 then raise "quit"
+			when 4 then remove_field_from_farm
+			when 5 then search_by_crop_name
 
 		end
 	end
@@ -37,9 +39,30 @@ class Farm_ui
 
 	def show_farm_status
 		Thefarm.all_fields.each do |crop_type|
-			puts "#{crop_type.crop_reader}"
-			puts "#{crop_type.crop_size_reader}"
+			puts "----------------------------------------"
+			puts "crop type;#{crop_type.crop_reader}"
+			puts "crop size;#{crop_type.crop_size_reader}"
+			puts "+++++++++++++++++++++++++++++++++++++++++"
 		end 
+	end 
+
+	def remove_field_from_farm #commented out parts not working 
+		p "which field would you like to remove"
+		response = gets.chomp
+		#if Thefarm.does_it_exist?(response) == true
+			field_remove = Thefarm.find_crop(response)
+			p "removing #{field_remove} now"
+			field_remove.remove_field
+		#else 
+			#return p "cannot remove"
+		#end
+	end
+
+	def search_by_crop_name #not working 
+		p "which crop would you like to search for?"
+		input = gets.chomp
+		output = Thefarm.find_crop(input)
+		return output
 	end 
 
 end

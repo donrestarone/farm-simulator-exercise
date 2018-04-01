@@ -103,6 +103,6 @@ puts Thefarm.find_crop("wheat").inspect
 puts Thefarm.find_crop_by_size(500).inspect
 
 
-#puts Thefarm.harvestable?("stuff")
+puts Thefarm.harvestable?("stuff")
 puts big_farm.crop_reader.inspect
 #puts big_farm.harvest("wheat").inspect
