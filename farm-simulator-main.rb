@@ -75,7 +75,7 @@ class Thefarm
 		@@farm.push self
 	end 
 
-	def all_fields
+	def self.all_fields
 		return @@farm
 	end 
 end 
@@ -87,10 +87,19 @@ big_farm = Thefarm.add_field("wheat", 50)
 big_farm = Thefarm.add_field("rice", 500)
 big_farm = Thefarm.add_field("stuff", 5000)
 
-puts big_farm.all_fields.inspect
+puts Thefarm.all_fields.inspect
 puts 
 puts
 #search for corn 
-puts Thefarm.find_crop("corn").inspect
+puts 
+puts
+puts Thefarm.find_crop("stuffff").inspect
 #search for crop by field size
+puts 
+puts
+
 puts Thefarm.find_crop_by_size(500).inspect
+puts 
+puts
+
+puts Thefarm.all_fields.inspect
