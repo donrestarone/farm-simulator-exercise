@@ -28,6 +28,8 @@ class Thefarm
 	def initialize(crop, size)
 		@crop = crop 
 		@size = size
+
+		@harvested = []
 	end 
 
 	def crop_reader
@@ -70,12 +72,18 @@ class Thefarm
 		end 
 	end 
 
-	def self.harvestable? 
-		if Thefarm.all_fields.include?(self) 
-			return true 
-		 
-		else return false
+	def self.harvestable?(crop_name)
 		
+		obj = 0 
+		@@farm.each do |crop|
+			 
+			if crop.crop_reader == crop_name
+				obj = 1
+				return true
+			end 
+		end
+		if obj != 1
+			return false
 		end 
 	end 
 
@@ -88,17 +96,21 @@ class Thefarm
 		end 
 	end 
 
-	def harvest #not working 
+	def self.harvest
 		crop_amount = 0
 		p "what crop would you like to harvest?"
 		crop_name = gets.chomp.to_s
-		crop_name = Thefarm.harvestable?
-		if Thefarm.harvestable? == true 
+		
+		if harvestable?(crop_name) == true 
 			crop_amount += 5
-		else 
+
+		else  
+			p "error"
 			return false
+			 
 		end 
-		return crop_amount
+		 
+		 #p "harvested #{crop_amount} #{crop_reader}"
 
 	end 
 
@@ -134,7 +146,7 @@ big_farm = Thefarm.add_field("stuff", 5000)
 # #search for crop by field size
 # puts 
 # puts
-#Thefarm.harvestable?.inspect
+#big_farm.harvest
 #puts Thefarm.find_crop_by_size(50).inspect
 # puts 
 # puts

@@ -66,7 +66,12 @@ class Farm_ui
 		#return output
 	end 
 
+	def harvest_crops
+		Thefarm.harvest
+	end 
+
 end
+
 
 menue = Farm_ui.new
 
