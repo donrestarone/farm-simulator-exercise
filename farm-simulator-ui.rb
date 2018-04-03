@@ -56,7 +56,7 @@ class Farm_ui
 			puts "----------------------------------------"
 			puts "harvested_amount;#{harvest.crop_reader}"
 			puts "crop type;#{harvest.crop_size_reader}"
-			puts "harvest count;#{harvest_counter}"
+			#puts "harvest count;#{harvest_counter}"
 			puts "+++++++++++++++++++++++++++++++++++++++++"
 		end 
 	end 

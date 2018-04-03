@@ -1,27 +1,3 @@
-# class Thefarm 
-# 	@@farm = []
-# 	def initialize(farm_name)
-# 		@farm_name = farm_name 
-# 	end 
-
-# 	def add_field(crop, size)
-# 		field = {crop => size}
-# 		@@farm.push(field)
-# 	end 
-
-# 	def all_fields
-# 		return @@farm
-# 	end 
-# end 
-
-# big_farm = Thefarm.new("big ass farm")
-
-# big_farm.add_field("corn", 5)
-# big_farm.add_field("wheat", 50)
-# big_farm.add_field("stuff", 500)
-
-# puts big_farm.all_fields.inspect
-
 class Thefarm 
 	@@farm = []
 	@@harvested = []
