@@ -53,8 +53,6 @@ class Farm_ui
 		end 
 		puts "harvested crops"
 		Thefarm.all_harvests.each do |harvest|
-			harvest_counter = 0
-			harvest_counter += 1 
 			puts "----------------------------------------"
 			puts "harvested_amount;#{harvest.crop_reader}"
 			puts "crop type;#{harvest.crop_size_reader}"
@@ -66,20 +64,22 @@ class Farm_ui
 	def remove_field_from_farm #commented out parts not working 
 		p "which field would you like to remove"
 		response = gets.chomp
-		#if Thefarm.does_it_exist?(response) == true
+		
 			field_remove = Thefarm.find_crop(response)
 			p "removing #{field_remove} now"
 			field_remove.remove_field
-		#else 
-			#return p "cannot remove"
-		#end
+		
 	end
 
 	def search_by_crop_name #not working 
 		p "which crop would you like to search for?"
 		input = gets.chomp
 		output = Thefarm.find_crop(input)
-		p output
+		puts "----------------------------------------"
+		puts "crop type;#{output.crop_reader}"
+		puts "........................................"
+		puts "crop size;#{output.crop_size_reader}"
+		puts "+++++++++++++++++++++++++++++++++++++++++"
 		#return output
 	end 
 
