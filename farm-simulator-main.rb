@@ -24,12 +24,12 @@
 
 class Thefarm 
 	@@farm = []
-
+	@@harvested = []
 	def initialize(crop, size)
 		@crop = crop 
 		@size = size
 
-		@harvested = []
+		
 	end 
 
 	def crop_reader
@@ -87,7 +87,7 @@ class Thefarm
 		end 
 	end 
 
-	def self.does_it_exist?(input)
+	def self.does_it_exist?(input) #checks the existance of the crop object in the array of objects with the built in method include?
 		if Thefarm.all_fields.include?(input) 
 			return true 
 		 
@@ -96,7 +96,7 @@ class Thefarm
 		end 
 	end 
 
-	def self.harvest
+	def self.harvest #this method calls on harvestable? to check if the specified crop is available/possible to harvest
 		crop_amount = 0
 		p "what crop would you like to harvest?"
 		crop_name = gets.chomp.to_s
@@ -109,9 +109,22 @@ class Thefarm
 			return false
 			 
 		end 
-		 
-		 #p "harvested #{crop_amount} #{crop_reader}"
+		harvester(crop_amount, crop_name)
+		
+	end 
 
+	def self.harvester(harvest_amount, harvest_name)
+		harvested_crops = Thefarm.new(harvest_amount, harvest_name)
+		harvested_crops.add_to_harvest
+
+	end 
+
+	def add_to_harvest 
+		@@harvested.push(self)
+	end 
+
+	def self.all_harvests 
+		return @@harvested
 	end 
 
 

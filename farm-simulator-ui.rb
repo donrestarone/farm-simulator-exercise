@@ -1,6 +1,11 @@
 require_relative 'farm-simulator-main.rb'
 
 class Farm_ui
+
+	def initialize 
+		
+	end 
+
 	def main_menue
 		while true 
 			show_main
@@ -25,6 +30,7 @@ class Farm_ui
 			when 3 then show_farm_status
 			when 4 then remove_field_from_farm
 			when 5 then search_by_crop_name
+			when 6 then add_harvest
 
 		end
 	end
@@ -38,10 +44,21 @@ class Farm_ui
 	end 
 
 	def show_farm_status
+		puts "fields"
 		Thefarm.all_fields.each do |crop_type|
 			puts "----------------------------------------"
 			puts "crop type;#{crop_type.crop_reader}"
 			puts "crop size;#{crop_type.crop_size_reader}"
+			puts "+++++++++++++++++++++++++++++++++++++++++"
+		end 
+		puts "harvested crops"
+		Thefarm.all_harvests.each do |harvest|
+			harvest_counter = 0
+			harvest_counter += 1 
+			puts "----------------------------------------"
+			puts "harvested_amount;#{harvest.crop_reader}"
+			puts "crop type;#{harvest.crop_size_reader}"
+			puts "harvest count;#{harvest_counter}"
 			puts "+++++++++++++++++++++++++++++++++++++++++"
 		end 
 	end 
@@ -67,9 +84,9 @@ class Farm_ui
 	end 
 
 	def harvest_crops
-		Thefarm.harvest
-	end 
+		 Thefarm.harvest
 
+	end 
 end
 
 
