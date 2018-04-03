@@ -124,17 +124,17 @@ big_farm = Thefarm.add_field("rice", 500)
 big_farm = Thefarm.add_field("stuff", 5000)
 
 #puts big_farm.inspect
-puts Thefarm.all_fields.inspect
+#puts Thefarm.all_fields.inspect
 # puts 
 # puts
 # #search for corn 
 # puts 
 # puts
-#puts Thefarm.find_crop("erg").inspect
+#puts Thefarm.find_crop("corn").inspect
 # #search for crop by field size
 # puts 
 # puts
-Thefarm.harvestable?.inspect
+#Thefarm.harvestable?.inspect
 #puts Thefarm.find_crop_by_size(50).inspect
 # puts 
 # puts

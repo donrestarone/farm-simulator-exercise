@@ -62,7 +62,8 @@ class Farm_ui
 		p "which crop would you like to search for?"
 		input = gets.chomp
 		output = Thefarm.find_crop(input)
-		return output
+		p output
+		#return output
 	end 
 
 end
